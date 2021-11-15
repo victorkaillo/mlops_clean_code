@@ -1,9 +1,10 @@
+# %%
 """
 Alunos: Júlia Guardiani e Victor Kaillo
 Dsiciplimna: PROJETO DE SISTEMAS BASEADOS EM APRENDIZADO DE MÁQUINA - T01
 Professor: Ivanovitch Medeiros Dantas da Silva
 """
-# Importações necessárias.
+# %%
 import io
 import pandas as pd
 import requests
@@ -16,25 +17,32 @@ autos = pd.read_csv(io.StringIO(s.decode('Latin-1')))
 autos.info()
 autos.head() # pylint: disable=E1101
 
+# %%
+#Visualizando as colunas para poder padronizar depois.
+columns_autos = autos.columns # pylint: disable=E1101
+print(columns_autos)
 
 # %%
 #Padronizando os nomes das colunas para facilitar o trabalho com os dados.
-autos.rename(columns={'yearOfRegistration' : 'registration_year', # pylint: disable=E1101
+autos_rename = autos.rename(columns={'yearOfRegistration' : 'registration_year',  # pylint: disable=E1101
                       'monthOfRegistration':'registration_month',
                       'notRepairedDamage':'unrepaired_damage',
-                      'dateCreated':'ad_created',
-                      'kilometer':'odometer_km'}, inplace=True)
-autos.head() # pylint: disable=E1101
+                      'dateCreated':'ad_created'}, inplace=True)
+autos_rename.head() # pylint: disable=E1101
 
 # %%
 #Explorando os dados para analisar onde é possível limpar os dados.
-autos.describe() # pylint: disable=E1101
+autos_describe = autos.describe() # pylint: disable=E1101
+print(autos_describe)
+
+# %%
+#Padronizando o nome da coluna Kilometer para odometer_km.
+autos.rename({"kilometer": "odometer_km"}, axis=1, inplace=True) # pylint: disable=E1101
 
 # %%
 #Como sugestão da atividade manteremos os itens de  $1 e acima de $350.000,
 #já que os preços aumentam continuamente nesse valor e depois saltam para números improváveis.
-autos[autos["price"].between(1,351000)] # pylint: disable=E1101
-autos["price"].describe()
+autos = autos[autos["price"].between(1,351000)] #pylint: disable=E1101
 
 # %%
 #Padronizando todas as colunas.
@@ -43,7 +51,7 @@ autos.columns = ['date_crawled', 'name', 'seller', 'offer_type', 'price', 'ab_te
        'odometer_km', 'registration_month', 'fuel_type', 'brand',
        'unrepaired_damage', 'ad_created', 'num_photos', 'postal_code',
        'last_seen']
-autos.head()
+autos.head() # pylint: disable=E1101
 
 # %%
 #Explorando colunas de datas de nao registros que são armazenadas como strings.
@@ -69,12 +77,6 @@ print(autos[['date_crawled','ad_created','last_seen']][0:5])
 autos["registration_year"].describe()
 
 # %%
-#O primeiro modelo de automóvel fabricado pela companhia alemã Volkswagen,
-#sendo produzido entre 1938.
-#usaremos essa informação como filtro na escala.
-escala_autos = (~autos["registration_year"].between(1930,2016)).sum() / autos.shape[0]
-
-# %%
 autos = autos[autos["registration_year"].between(1930,2016)]
 
 # %%
@@ -87,8 +89,7 @@ print(counts_brand)
 # %%
 #Análise às marcas que representam mais de 5% do total de listagens. (e.g. > 5%)
 pop_brands = counts_brand[counts_brand > .05].index
-print(pop_brands)
-#achar top20
+
 
 # %%
 #Diferença de preço nas principais marcas
@@ -126,6 +127,3 @@ print(brand_info)
 
 # %%
 brand_info["mean_price"] = mean_prices_sec
-print(brand_info)
-
-# %%
