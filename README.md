@@ -7,20 +7,23 @@ Víctor Kaillo
 Data:
 Nov. 2021
 
-Dsiciplimna: PROJETO DE SISTEMAS BASEADOS EM APRENDIZADO DE MÁQUINA - T01
+Disciplina: PROJETO DE SISTEMAS BASEADOS EM APRENDIZADO DE MÁQUINA - T01
 
 
 Professor: Ivanovitch Medeiros Dantas da Silva
 
 
 # Um resumo da solução para o projeto guiado: [Exploring eBay Car Sales Data](https://app.dataquest.io/c/54/m/294/guided-project%3A-exploring-ebay-car-sales-data/)
-  O arquivo []() contém um Jupyter Notebook que é nossa implementação do projeto guiado. Trabalhando com um conjunto de dados de carros usados do eBay Kleinanzeigen, uma seção de classificados do site alemão do eBay. O conjunto de dados foi originalmente alterado e carregado no Kaggle pelo usuário orgesleka. O conjunto de dados original não está mais disponível no Kaggle, mas você pode encontrá-lo em [Data Society: used cars data](https://data.world/data-society/used-cars-data). O objetivo deste projeto é limpar os dados e analisar as listagens de carros usados incluídas. Nesse ínterim, familiarizamo-nos com alguns dos benefícios exclusivos que o notebook jupyter oferece para pandas.
+  O arquivo [notebook_01_cleancode.ipynb](https://github.com/juliaguardiani/mlops_clean_code/blob/main/notebook_01_cleancode.ipynb) contém um Jupyter Notebook que é nossa implementação do projeto guiado. Trabalhando com um conjunto de dados de carros usados do eBay Kleinanzeigen, uma seção de classificados do site alemão do eBay. O conjunto de dados foi originalmente alterado e carregado no Kaggle pelo usuário orgesleka. O conjunto de dados original não está mais disponível no Kaggle, mas você pode encontrá-lo em [Data Society: used cars data](https://data.world/data-society/used-cars-data). O objetivo deste projeto é limpar os dados e analisar as listagens de carros usados incluídas. Nesse ínterim, familiarizamo-nos com alguns dos benefícios exclusivos que o notebook jupyter oferece para pandas.
   
 # Clean Code no projeto guiado
 Aproveitando o estudo do projeto guiado para exemplificar e aprender melhor como utilizar as regras do clean code com a ajuda de quatro ferramentas, pycodestyle, pylint, autopep8 e nbQA para automatizar/checar o código. A seguir, um exemplo real utilizando o pylint no projeto guiado.
 
 ## Pylint
-Seguindo o estilo recomendado pelo PEP 8, o pylint verifica bugs e otimiza a qualidade do código fonte para a linguagem de programação Python. Ao utilizar a ferramenta, não obtemos o retorno do código analisado, mas uma verificação de erros segundo as recomendações de estilo e uma nota gerada automaticamente segundo os erros. A primeira execução do código pelo pylint está mostrada logo abaixo, com nota negativa de -1.40. 
+
+Seguindo o estilo recomendado pelo PEP 8, o pylint verifica bugs e otimiza a qualidade do código fonte para a linguagem de programação Python. Ao utilizar a ferramenta, não obtemos o retorno do código analisado, mas uma verificação de erros segundo as recomendações de estilo e uma nota gerada automaticamente segundo os erros. 
+
+Aplicamos a ferramenta pylint no script python localizado no arquivo [trabalho_01_cleancode.py](https://github.com/juliaguardiani/mlops_clean_code/blob/main/trabalho_01_cleancode.py) em busca não só de uma melhoria do código, mas em busca de desenvolver a habilidade de escrever um código limpo. A primeira execução do código pelo pylint está mostrada logo abaixo, com nota negativa de -1.40. 
 OBS: para chamar a ferramate: pylint exemplo.py
 
 
@@ -73,5 +76,6 @@ O código a seguir é um comentário para cancelar alguma linha da correção es
 
 	#pylint: disable=E1101
 
+E mesmo desativando o pylint em algums linhas, não foi possível alcançar a nota de código limpo desejada. 
 
-
+Este projeto foi desenvolvido com o objetivo principal de utilizar novas habilidades de ciência de dados e código limpo em projetos de sistemas baseados em aprendizado de máquina. Por hora, estamos satisfeitos com nosso resultado parcial. Vemos este projeto como o primeito passo de uma jornada em busca da excelência em projetos de ciência de dados.
