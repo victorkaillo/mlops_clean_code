@@ -1,6 +1,6 @@
 # Princípios de código limpo para Data Science e aprendizado de máquina
 Autores:
-Júlia Guardiani
+Júlia Guardiani e
 Víctor Kaillo
 
 
